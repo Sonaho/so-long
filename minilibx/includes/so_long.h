@@ -6,7 +6,7 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:15:49 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/04 15:07:25 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/05/05 12:43:49 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 # define MAPINVALID "\nError: Map not valid"
 # define MAPINVALIDWALL "\nError: Walls not valid"
 # define MAPINVALIDCONTENT "\nError: Content not valid"
+# define IMAGEPLAYERNOTFOUND "\nError: PLAYER image not found"
+# define IMAGECONTENTNOTFOUND "\nError: CONTENT image not found"
+# define IMAGEEXITNOTFOUND "\nError: EXIT image not found"
+# define IMAGESPACENOTFOUND "\nError: SPACE image not found"
+# define IMAGEWALLNOTFOUND "\nError: WALL image not found"
+# define LIBRARYERROR "\nError: loading library mlx"
+# define TITLEAPP "So long aplication"
+# define WALLDETECTED "Can't move in that direction, wall detected"
+# define EXITDETECTED "Can't exit, have more content, go get it"
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -53,8 +62,10 @@ typedef struct s_data
 	int		walls;
 	int		content;
 	int		player;
-	char	*error;
+	int		coordx;
+	int		coordy;
 	char	**map;
+	char	*error;
 	char	*path;
 	char	*c_line;
 	void	*mlx;
@@ -77,6 +88,13 @@ void	get_map_line(t_data *data);
 void	search_chars(t_data *data);
 int		clean_memory(t_data *data);
 int		load_images(t_data *data);
+void	add_picture(t_data *data, int i, int j);
+void	print_map(t_data *data);
 int		create_screen(t_data *data);
 void	destroy_window(t_data *data);
+void	move_up(t_data *data);
+void	move_down(t_data *data);
+void	move_left(t_data *data);
+void	move_right(t_data *data);
+void	move(t_data *data, int i, int j);
 #endif

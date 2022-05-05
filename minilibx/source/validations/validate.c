@@ -6,10 +6,9 @@
 /*   By: aalmela- <aalmela-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 11:55:44 by aalmela-          #+#    #+#             */
-/*   Updated: 2022/05/04 14:48:31 by aalmela-         ###   ########.fr       */
+/*   Updated: 2022/05/05 09:49:09 by aalmela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../includes/so_long.h"
 
@@ -36,5 +35,3 @@ int	validate(char *path, t_data *data)
 		return (1);
 	return (0);
 }
-
-

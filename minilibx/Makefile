@@ -8,6 +8,8 @@ SRCS 	= main.c \
 		source/system/clear.c \
 		source/system/file_operations.c \
 		source/system/errors.c \
+		source/system/key_moves.c \
+		source/system/move.c \
 		source/graphics/create_screen.c \
 		source/graphics/destory_screen.c \
 		includes/get_next_line/get_next_line.c 
@@ -26,16 +28,16 @@ LIBRARY	 = 	./includes/libft.a\
 			./includes/libmlx.a
 INCLUDE_D = ./includes
 
-all: $(NAME)
+all: libs $(NAME)
 
-$(NAME):  libs
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(SRCS) $(LIBRARY) -L $(INCLUDE_D) $(FRWORK) -o ./bin/$(NAME)
 
 libs: 
-		$(MAKE) all -C ./includes/libft
-		$(MAKE) all -C ./includes/minilibx_opengl/
-		mv ./includes/libft/libft.a ./includes
-		mv ./includes/minilibx_opengl/libmlx.a ./includes
+		@$(MAKE) all -C ./includes/libft
+		@$(MAKE) all -C ./includes/minilibx_opengl/
+		@cp ./includes/libft/libft.a ./includes
+		@cp ./includes/minilibx_opengl/libmlx.a ./includes
 
 clean:
 		$(MAKE) clean -C ./includes/libft
